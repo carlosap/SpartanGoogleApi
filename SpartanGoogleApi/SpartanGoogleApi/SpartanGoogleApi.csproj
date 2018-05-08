@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Carlos A. Perez</Authors>
+    <Description>Cross-platform base framework. Google places, locations etc.</Description>
+    <PackageProjectUrl>https://github.com/carlosap/SpartanGoogleApi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/carlosap/SpartanGoogleApi</RepositoryUrl>
+    <PackageTags>spartan google api</PackageTags>
+    <PackageReleaseNotes>Cross-platform base framework. Google places, locations etc.</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/carlosap/content/master/images/spartan_32x32.png</PackageIconUrl>
+  </PropertyGroup>
+
+</Project>
