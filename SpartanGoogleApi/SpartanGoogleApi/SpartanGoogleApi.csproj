@@ -3,12 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <Authors>Carlos A. Perez</Authors>
-    <Description>Cross-platform base framework. Google places, locations etc.</Description>
+    <Description>(BETA- DO NOT USE YET)Cross-platform base framework. Google places, locations etc.</Description>
     <PackageProjectUrl>https://github.com/carlosap/SpartanGoogleApi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/carlosap/SpartanGoogleApi</RepositoryUrl>
     <PackageTags>spartan google api</PackageTags>
-    <PackageReleaseNotes>Cross-platform base framework. Google places, locations etc.</PackageReleaseNotes>
+    <PackageReleaseNotes>(BETA- DO NOT USE YET)Cross-platform base framework. Google places, locations etc.</PackageReleaseNotes>
     <PackageIconUrl>https://raw.githubusercontent.com/carlosap/content/master/images/spartan_32x32.png</PackageIconUrl>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SpartanAppExtensions" Version="1.0.3" />
+    <PackageReference Include="SpartanLogging" Version="1.0.2" />
+    <PackageReference Include="SpartanSettings" Version="1.0.5" />
+  </ItemGroup>
 
 </Project>
