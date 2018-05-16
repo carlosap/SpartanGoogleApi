@@ -15,6 +15,7 @@ namespace SpartanGoogleApi
         private static ILogging _logging;
         private static string _configPath;
         private static PlaceDetailResponse _placeDetail;
+        private static DistanceMatrix _distance;
         private static List<string> RemovePhrases = new List<string>() { " at ", " on ", " - ", ", " };
         private static List<AutoCompleteResponse> _predictions;
         public string Key { get; set; }
@@ -141,13 +142,13 @@ namespace SpartanGoogleApi
                 return _predictions;
             }
 
-            if (string.IsNullOrWhiteSpace(Key))
+            if (string.IsNullOrWhiteSpace(lon))
             {
                 _logging.Error("GoogleApi:GetAutoCompleteNearLocationAsync", "The lon can not be empty");
                 return _predictions;
             }
 
-            if (string.IsNullOrWhiteSpace(Key))
+            if (string.IsNullOrWhiteSpace(token))
             {
                 _logging.Error("GoogleApi:GetAutoCompleteNearLocationAsync", "The token value can not be empty");
                 return _predictions;
@@ -238,6 +239,48 @@ namespace SpartanGoogleApi
             });
         }
 
+
+        public async Task<DistanceMatrix> GetDistanceMatrixByIdAsync(string lat, string lon, string id)
+        {
+            _distance = new DistanceMatrix();
+            if (string.IsNullOrWhiteSpace(lat))
+            {
+                _logging.Error("GoogleApi:GetDistanceMatrixByIdAsync", "The lat can not be empty");
+                return _distance;
+            }
+
+            if (string.IsNullOrWhiteSpace(lon))
+            {
+                _logging.Error("GoogleApi:GetDistanceMatrixByIdAsync", "The lon can not be empty");
+                return _distance;
+            }
+
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                _logging.Error("GoogleApi:GetDistanceMatrixByIdAsync", "The id value can not be empty");
+                return _distance;
+            }
+
+            return await Task.Run(async () =>
+            {
+
+                try
+                {
+                    string url = string.Format(DistanceMatrix, lat, lon, id, Key);
+                    var rawJson = await url.GetUrlResponseString();
+                    _distance = rawJson.DeserializeObject<DistanceMatrix>();
+                    return _distance;
+                }
+                catch (Exception ex)
+                {
+                    _logging.Error("GoogleApi:GetDistanceMatrixByIdAsync", ex.ToString());
+                    _placeDetail = null;
+                }
+                return _distance;
+            });
+
+        }
+
         /// <summary>
         /// returns left side of string if phrases found
         /// in Config.RemovePhrases. 
@@ -256,5 +299,7 @@ namespace SpartanGoogleApi
 
             return value;
         }
+
+
     }
 }

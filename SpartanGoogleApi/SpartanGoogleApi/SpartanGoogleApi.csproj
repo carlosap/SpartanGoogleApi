@@ -11,7 +11,7 @@ I will providing the JSON file. The bootstrap should create a default configurat
     <PackageReleaseNotes>Cross-platform base framework. Google places, locations etc. For usage please see UnitTest at the project samle
 I will providing the JSON file. The bootstrap should create a default configuration for you.</PackageReleaseNotes>
     <PackageIconUrl>https://raw.githubusercontent.com/carlosap/content/master/images/spartan_32x32.png</PackageIconUrl>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <AssemblyVersion>1.0.1.1</AssemblyVersion>
     <FileVersion>1.0.1.1</FileVersion>
   </PropertyGroup>
